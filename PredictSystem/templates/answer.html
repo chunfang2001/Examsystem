@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <title>Can You Get It?</title>
+    <link rel="stylesheet" href="static/styles3.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+
+</head>
+
+<body>
+    <div class="container" >
+        <h1 id="title">Can You Get It?</h1>
+        <p id="description"> Your Result </p>
+        <div class="sticky-notes">
+            <form action="{% url 'index' %}" id="survey-form">
+
+                <fieldset class="sticky-note">
+                  
+                  <p id= "description-alt"> Based on the average of 10 tests/exams, you cannot complete </p>
+                  
+                  <div id="output">{{prediction}}</div>
+                    
+                   </fieldset>
+            </form>
+        </div>
+        <!-- End of .sticky-notes-->
+
+    </div>
+    <!-- End of .container-->
+
+      <button type="Exit" style="margin:auto" form="survey-form"> Exit</button>
+  
+</body>
+
+
+</html>

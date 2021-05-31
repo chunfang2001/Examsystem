@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Can You Get It?</title>
+        <link rel="stylesheet" href="static/styles1.css">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+        <script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"></script>
+    </head>
+    
+    <body>
+        <div class="container" >
+            <h1 id="title">Can You Get It?</h1>
+            <p id="description">Want to know how well you can do in your exam? We are here to help!</p>
+            <div class="sticky-notes">
+                
+                <form action="{% url 'ques' %}" id="survey-form">
+                    {% csrf_token %}
+                    <fieldset class="sticky-note">
+                        <label for="name" id="name_label">
+                        <input type="text" name="name" id="name" placeholder="Hank Hill"></label>
+                        <label for="email" id="email-label">
+                        <input type="email" name="email" id="email" placeholder="example@email.com"></label>
+                        <label for="number" id="number-label"> 
+                        <input type="number" name="age" id="age" min="1" max="60" placeholder="Age"></label>
+                        
+                        <fieldset>
+                            <legend>Sex:</legend>
+                            <label for="male">
+                                <input type="radio" name="gender" id="male">Male
+                            </label>
+                            <label for="female">
+                                <input type="radio" name="gender" id="female">Female
+                            </label>
+                            <label for="other">
+                                <input type="radio" name="gender" id="other">Other
+                            </label>
+                        </fieldset>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- End of .sticky-notes-->
+    
+        </div>
+        <!-- End of .container-->
+          <button type="submit" form="survey-form" style="margin:auto">Submit</button>
+    </body>
+
+</html>

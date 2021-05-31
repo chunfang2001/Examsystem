@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+<link rel="stylesheet" href="static/styles2.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+<script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="title">Can You Get It? 😎</h1>
+    <p id="description">Want to know how well you can do in your exam? We are here to help!</p>
+
+    <div class="sticky-notes">
+      <form action="{% url 'ques' %}" id="survey-form" method="POST">
+        {% csrf_token %}
+        <input type=hidden value="{{name}}" name=name>
+        <input type=hidden value="{{age}}" name=age>
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 1:</legend>
+          <h3>Frequency or reviewing or previewing the learning contents each week.</h3>
+          <select name="review_fre" id="dropdown">
+            <optgroup label="Frequency">
+              <option value="0"> > 7 times</option>
+              <option value="1"> 5 - 7 times </option>
+              <option value="2"> 3 - 4 times</option>
+              <option value="3">3 times</option>
+              <option value="4"> Never</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 2:</legend>
+          <h3>Daily study hours (excluded class time).</h3>
+          <select name="study_time" id="dropdown">
+            <optgroup label="Hours">
+              <option value="0">
+                 1 hr</option>
+              <option value="1"> 1 - 2 hrs </option>
+              <option value="2"> 3 - 4 hrs</option>
+              <option value="3"> 5 - 6 hrs</option>
+              <option value="4"> > 6 hrs</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 3:</legend>
+          <h3>Start preparing for exam</h3>
+          <select name="prepare_exam" id="dropdown">
+            <optgroup label="Range">
+              <option value="0"> on the day of exam</option>
+              <option value="1"> 1 day before exam </option>
+              <option value="2"> a few days before exam</option>
+              <option value="3"> one week from the exam</option>
+              <option value="4">earlier than one week from the exam</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 4:</legend>
+          <h3>Daily sleep hours during exam season.</h3>
+          <select name="sleeptime" id="dropdown">
+            <optgroup label="Hours">
+              <option value="0">
+                 2 hrs</option>
+              <option value="1"> 2 - 4 hrs </option>
+              <option value="2"> 5 - 6 hrs</option>
+              <option value="3"> 7 - 8 hrs</option>
+              <option value="4"> > 8 hrs</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 5</legend>
+          <h3>Enough sleep for your exam?</h3>
+          <label for="Yes">
+            <input type="radio" name="sleep" id="yes" value="0" >Yes</label>
+          <br />
+          <label for="No">
+            <input type="radio" name="sleep" id="no" value="1">No</label>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 6:</legend>
+          <h3>Daily leisure time during exam season.</h3>
+          <select name="leisure" id="dropdown">
+            <optgroup label="Hours">
+              <option value="0">
+                 1 hr</option>
+              <option value="1"> 1 - 2 hrs </option>
+              <option value="2"> 3 - 4 hrs</option>
+              <option value="3"> 5 - 6 hrs</option>
+              <option value="4"> > 6 hrs</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset class="sticky-note">
+          <legend class="tape">Question 7</legend>
+          <h3>Other reasons of failure in exam. </h3>
+          <label for="comment">
+            <textarea name="comment" id="comment" cols="20" rows="4" placeholder="Message"></textarea>
+          </label>
+        </fieldset>
+
+      </form>
+    </div>
+    <!-- End of .sticky-notes-->
+
+  </div>
+  <button type="submit" form="survey-form">Submit</button>
+  <!-- End of .container-->
+</body>
+</html>
